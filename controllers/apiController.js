@@ -41,7 +41,7 @@ module.exports = function(app){
         }else{
             //its an insert operation
             var newCartItem = todos({
-                userName: 'Testsee',
+                userName: 'test',
                 item: req.body.item,
                 isPurchased: req.body.isPurchased,
                 hasAttachment: req.body.hasAttachment
