@@ -1,0 +1,33 @@
+﻿<div class="row" >
+    <div class="text-center">List of active tasks</div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">      
+        <div class='table-responsive'>
+            <table class='table' *ngIf="scrumBoardItems && scrumBoardItems.length">
+                <thead>
+                    <tr>
+                        <th>Assignee</th>
+                        <th>Task</th>
+                        <th>Type</th>
+                        <th>Priority</th>
+                        <th>Assigned Sprint</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let scrumBoardItem of scrumBoardItems">
+                        <td >{{scrumBoardItem.assignee}}</td>
+                        <td >{{scrumBoardItem.task}}</td>
+                        <td >{{scrumBoardItem.taskType }}</td> 
+                        <td >{{ scrumBoardItem.taskPriority }}</td> 
+                        <td >{{ scrumBoardItem.taskSprint }}</td> 
+                        <td >{{ scrumBoardItem.status }}</td>             
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
