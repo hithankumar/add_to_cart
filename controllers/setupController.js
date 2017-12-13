@@ -1,35 +1,70 @@
 var toDos = require('../models/todoModel');
 
-module.exports =function(app){
-    app.get('/api/setupCartData', function(req, res){
-console.log('here');
-        var starterCartData = [
+module.exports = function(app){
+    app.get('/api/setupScrumBoardData', function(req, res){
+        var scrumBoardData = [
             {
-                userName: 'Ben',
-                item: 'Milk',
-                isPurchased: true,
-                hasAttachment: true
-            },{
-                userName: 'Mark',
-                item: 'Pencil',
-                isPurchased: false,
-                hasAttachment: true
-            },{
-                userName: 'Tom',
-                item: 'Apple',
-                isPurchased: false,
-                hasAttachment: true
-            },{
-                userName: 'Anthony',
-                item: 'Chocolate',
-                isPurchased: true,
-                hasAttachment: false
-            }
+                assignee: 'Ben',
+                task: 'Complete POC on Node JS',
+                taskPriority: 2,
+                taskSprint: "Sprint 2",
+                status: "toDo",
+                taskType: 'feature'
+            },
+            {
+                assignee: 'Ben',
+                task: 'Implement dota feature in ML',
+                taskPriority: 0,
+                taskSprint: "Sprint 1",
+                status: "progress",
+                taskType: 'feature'
+            },
+            {
+                assignee: 'Mark',
+                task: 'Implement dota feature from DB',
+                taskPriority: 0,
+                taskSprint: "Sprint 1",
+                status: "progress",
+                taskType: 'feature'
+            },
+            {
+                assignee: 'Sam',
+                task: 'Implement dota feature from UI',
+                taskPriority: 0,
+                taskSprint: "Sprint 1",
+                status: "progress",
+                taskType: 'feature'
+            },
+            {
+                assignee: 'Ben',
+                task: 'On completion the task fails to update',
+                taskPriority: 0,
+                taskSprint: "Sprint 1",
+                status: "toDo",
+                taskType: 'bug'
+            },
+            {
+                assignee: 'Sam',
+                task: 'ALlignment issue for table',
+                taskPriority: 0,
+                taskSprint: "Sprint 1",
+                status: "inReview",
+                taskType: 'bug'
+            },
+            {
+                assignee: 'Mark',
+                task: 'Exception error evaluation',
+                taskPriority: 0,
+                taskSprint: "Sprint 1",
+                status: "inTesting",
+                taskType: 'bug'
+            },
         ];
 
-        toDos.create(starterCartData, function(err, results){
+        toDos.create(scrumBoardData, function(err, results){
             res.send(results);
         });
+        console.log("here");
     });
 
 

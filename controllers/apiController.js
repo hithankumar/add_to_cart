@@ -5,6 +5,14 @@ module.exports = function(app){
     //middleware to parse our json request from body
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
+    //get all the items in the cart
+    app.get('/api/getScrumBoardData', function(req, res){
+        todos.find({}, function(err, todos){
+            if(err)
+                throw err;
+            res.send(todos);
+        });
+    });
 
     app.get('/api/getCartData/:userName', function(req, res){
         todos.find({
